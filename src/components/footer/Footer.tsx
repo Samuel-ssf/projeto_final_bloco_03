@@ -9,7 +9,7 @@ function Footer() {
         
             <div className="flex justify-center bg-cyan-800 text-white px-2 w-full fixed bottom-0 left-0 z-50">
                 <div className="container flex flex-col items-center py-2 md:py-1 gap-1 md:gap-1">
-                    <p className='text-base md:text-xl font-bold text-center'>Loja de Games Generation | Copyright: {data}</p>
+                    <p className='text-base md:text-xl font-bold text-center'>Farmacia SSF | Copyright: {data}</p>
                     <p className='text-sm md:text-lg text-center'>Acesse nossas redes sociais</p>
                     <div className='flex flex-wrap justify-center gap-2 md:gap-2'>
                         <a href="https://www.linkedin.com/samuel-ssf" target="_blank" className="flex items-center">
