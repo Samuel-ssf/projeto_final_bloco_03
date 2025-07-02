@@ -5,19 +5,21 @@ interface CardCategoriaProps {
     categoria: Categoria
   }
 
-function CardCategorias({categoria}: CardCategoriaProps) {
+function CardCategorias({categoria}: Readonly<CardCategoriaProps>) {
     return (
-        <div className="flex flex-col justify-between overflow-hidden border rounded-2xl">
-            <header className="px-6 py-2 text-2xl font-bold text-white bg-slate-700">Categoria</header>
-            <p className="h-full p-8 text-3xl bg-white">{categoria.tipo}</p>
+        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
+            <header className='py-2 px-6 bg-slate-700  text-white font-bold text-2xl'>Categoria</header>
+            <p className='p-8 text-3xl bg-white h-full'>{categoria.tipo}</p>
             <div className="flex">
                 <Link to={`/editarcategoria/${categoria.id}`}
-                    className="flex items-center justify-center w-full py-2 bg-teal-600 text-slate-50 hover:bg-teal-800">
+                    className='w-full text-slate-100 bg-teal-600 hover:bg-teal-700 
+                        flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
 
                 <Link to={`/deletarcategoria/${categoria.id}`}
-                    className="flex items-center justify-center w-full bg-red-500 text-slate-50 hover:bg-red-700">
+                    className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
+                        flex items-center justify-center'>
                     <button>Deletar</button>
                 </Link>
             </div>

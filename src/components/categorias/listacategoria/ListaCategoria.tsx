@@ -1,30 +1,22 @@
 import { useEffect, useState } from 'react'
 import { PacmanLoader } from 'react-spinners'
-import CardCategorias from '../cardcategoria/CardCategoria'
-import { listar } from '../formcategoaria/FormCategoria'
 import type Categoria from '../../models/Categoria'
+import { listar } from '../../../service/Service'
+import CardCategorias from '../cardcategoria/CardCategoria'
 
 function ListarCategorias() {
-	
-    const [categorias, setCategorias] = useState<Categoria[]>([])
-	const [isLoading, setIsLoading] = useState<boolean>(false)
+	const [isLoading, setIsLoading] = useState(true)
+
+	const [categorias, setCategorias] = useState<Categoria[]>([])
 
 	async function buscarCategorias() {
-        setIsLoading(true)
-
-        try{
-            await listar('/categorias', setCategorias)
-        }catch(error: any){
-            console.log("Erro ao listar as Categorias!")
-        }finally{
-            setIsLoading(false)
-        }
-		
+		await listar('/categorias', setCategorias)
 	}
 
 	useEffect(() => {
-		buscarCategorias()
-	}, [categorias.length])
+		setIsLoading(true)
+		buscarCategorias().finally(() => setIsLoading(false))
+	}, [])
 
 	return (
 		<>
@@ -33,21 +25,20 @@ function ListarCategorias() {
 					color="#0D9488"
 					margin={0}
 					size={80}
-                    speedMultiplier={2}
-                    aria-label="Pacman-loading"
-                    className='mx-auto my-8'
+					speedMultiplier={2}
+					aria-label="Pacman-loading"
+					className="mx-auto my-16"
 				/>
 			)}
-			<div className="flex justify-center w-full my-4">
-				<div className="container flex flex-col mx-4">
-					{ (!isLoading && categorias.length === 0) && (
-						<span className="my-8 text-3xl text-center">
-							Nenhuma categoria foi
-							encontrada
-						</span>
+			<div className="flex justify-center bg-slate-100 pt-4">
+				<div className="px-4 my-4 container flex flex-col">
+					{(!isLoading && categorias.length === 0) && (
+						<div className="text-3xl text-center my-8">
+							Nenhum produto foi encontrado
+						</div>
 					)}
 
-					<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+					<div className="container my-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 pb-4 md:pb-8">
 						{categorias.map((categoria) => (
 							<CardCategorias
 								key={categoria.id}

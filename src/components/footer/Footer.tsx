@@ -1,31 +1,37 @@
-import {  InstagramLogoIcon, LinkedinLogoIcon, GithubLogoIcon } from '@phosphor-icons/react'
+import { InstagramLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react'
+import { GithubLogoIcon } from '@phosphor-icons/react/dist/ssr'
 
 function Footer() {
 
     let data = new Date().getFullYear()
 
     return (
-        <>
-            <div className="flex justify-center bg-cyan-500 text-white w-full fixed bottom-0">
-                <div className="container flex flex-col items-center py-4">
-                    <p className='text-xl font-bold'>
-                            Projeto farmácia - Samuel Silva  | Copyright: {data} 
-                        </p>
-                    <p className='text-lg'>Acesse minhas redes</p> 
-                    <div className='flex gap-2'>
-                        <a href="https://linkedin.com/in/samuel-ssf" target="_blank">
-                        <LinkedinLogoIcon size={48} weight='bold' /> 
+        
+            <div className="flex justify-center bg-cyan-800 text-white px-2 w-full fixed bottom-0 left-0 z-50">
+                <div className="container flex flex-col items-center py-2 md:py-1 gap-1 md:gap-1">
+                    <p className='text-base md:text-xl font-bold text-center'>Loja de Games Generation | Copyright: {data}</p>
+                    <p className='text-sm md:text-lg text-center'>Acesse nossas redes sociais</p>
+                    <div className='flex flex-wrap justify-center gap-2 md:gap-2'>
+                        <a href="https://www.linkedin.com/samuel-ssf" target="_blank" className="flex items-center">
+                            <span className="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+                                <LinkedinLogoIcon size={32} weight='bold' className="w-full h-full" />
+                            </span>
                         </a>
-                         <a href="https://www.instagram.com/samuell_ssf" target="_blank"> 
-                        <InstagramLogoIcon size={48} weight='bold' />
+                        <a href="https://www.instagram.com/samuell_ssf" target="_blank" className="flex items-center">
+                            <span className="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+                                <InstagramLogoIcon size={32} weight='bold' className="w-full h-full" />
+                            </span>
                         </a>
-                        <a href="https://github.com/Samuel-ssf" target="_blank"> 
+                        <a href="https://github.com/Samuel-ssf" target="_blank" className="flex items-center">
+                            <span className="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
                         <GithubLogoIcon size={48} weight='bold' />
+                                
+                            </span>
                         </a>
                     </div>
                 </div>
             </div>
-        </>
+        
     )
 }
 
